@@ -35,9 +35,12 @@ def get_best_word(df, index):
 def get_list_of_tags(df):
     list_of_tags = []
 
+    #########
+    # This is the part that takes absurdly long
     for i in range(len(df)):
         list_of_tags.append(get_best_word(df, i))
     better_list_of_tags = []
+    #########
 
     for i in range(len(list_of_tags)):
         better_list_of_tags.append(list_of_tags[i][0])
