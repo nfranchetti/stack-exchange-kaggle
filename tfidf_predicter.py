@@ -19,7 +19,7 @@ def cleanhtml(raw_html):
     cleantext = cleantext.lower()
     return cleantext
 
-def do_tdfif(df):
+def do_tfidf(df):
     tvec = TfidfVectorizer(stop_words='english')
     tvec.fit(df['clean content'])
 
@@ -51,7 +51,7 @@ def create_prediction_column(df, words_df):
 
 
 df = create_clean_columns('test.csv')
-words_df = do_tdfif(df)
+words_df = do_tfidf(df)
 create_prediction_column(df, words_df)
 
 sub_df = df[['id', 'predicted_tag']]
