@@ -5,7 +5,7 @@ import re
 import string
 
 def create_clean_columns(infile):
-    df = pd.read_csv('~/Downloads/%s' % infile)
+    df = pd.read_csv('~/kaggle_data/%s' % infile)
     
     df['clean content'] = df['content'].apply(cleanhtml)
     df['clean title'] = df['title'].apply(cleanhtml)
@@ -59,4 +59,4 @@ create_prediction_column(df, words_df)
 
 sub_df = df[['id', 'predicted_tag']]
 sub_df.columns = ['id', 'tags']
-sub_df.to_csv('submission%s.csv' % number, encoding='utf-8', index=False)
+sub_df.to_csv('~/kaggle_data/submissions/submission%s.csv' % number, encoding='utf-8', index=False)
