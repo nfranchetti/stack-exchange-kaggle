@@ -5,7 +5,7 @@ import re
 import string
 
 def create_clean_columns(infile):
-    df = pd.read_csv('~/code/data/%s' % infile)
+    df = pd.read_csv('~/Downloads/%s' % infile)
     
     df['clean content'] = df['content'].apply(cleanhtml)
     df['clean title'] = df['title'].apply(cleanhtml)
@@ -51,12 +51,12 @@ def create_prediction_column(df, words_df):
     df['predicted_tag'] = get_list_of_tags(words_df)
 
 
+number = raw_input('Enter a number between 1 and 8: ')
 
-
-df = create_clean_columns('physics1.csv')
+df = create_clean_columns('physics%s.csv' % number)
 words_df = do_tfidf(df)
 create_prediction_column(df, words_df)
 
 sub_df = df[['id', 'predicted_tag']]
 sub_df.columns = ['id', 'tags']
-sub_df.to_csv('submission.csv', encoding='utf-8', index=False)
+sub_df.to_csv('submission%s.csv' % number, encoding='utf-8', index=False)
