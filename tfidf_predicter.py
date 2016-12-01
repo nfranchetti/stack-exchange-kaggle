@@ -5,7 +5,7 @@ import re
 import string
 
 def create_clean_columns(infile):
-    df = pd.read_csv('datasets/%s' % infile)
+    df = pd.read_csv('~/code/data/%s' % infile)
     
     df['clean content'] = df['content'].apply(cleanhtml)
     df['clean title'] = df['title'].apply(cleanhtml)
@@ -53,7 +53,7 @@ def create_prediction_column(df, words_df):
 
 
 
-df = create_clean_columns('test.csv')
+df = create_clean_columns('physics1.csv')
 words_df = do_tfidf(df)
 create_prediction_column(df, words_df)
 
