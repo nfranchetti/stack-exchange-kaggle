@@ -16,4 +16,5 @@ Thumbs.db
 .ipynb_checkpoints/
 
 #Large datasets
-datasets/stack_exchange.csv
+datasets/
+submissions/
